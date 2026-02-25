@@ -1,8 +1,0 @@
-@import "tailwindcss";
-
-@variant dark (&:is(.dark *));
-
-.centered{
-    left: 50%;
-    transform: translateX(-50%);
-}
