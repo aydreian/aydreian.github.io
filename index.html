@@ -8,29 +8,45 @@
     </head>
     
     <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
-        <nav class = "fixed flex top-0 right-0 w-full bg-gray-600 dark:bg-gray-800 p-4 flex-col md:flex-row gap-4 justify-end z-10 transition-colors duration-500">
-            <h1 class="font-bold text-3xl absolute text-white top-4 left-4">Portfolio</h1>
-            <button onclick="toggleDarkMode(this)" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Dark Mode</button>
-            <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Home</button>
-            <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Us</button>
-            <button onclick="scrollToSection('contact')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Contact</button>
+        <nav class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-10 transition-colors duration-500">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center gap-4">
+                <h1 class="text-2xl font-bold">Aydreian</h1>
+                
+                <div class="flex gap-4 items-center">
+                    <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Home</button>
+                    <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Us</button>
+                    <button onclick="scrollToSection('contact')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Contact</button>
+                    
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
         </nav>
     
-        <!--
-         Functions to accomplish!
+        <!-- TODO:
+            - Add section/webpage for professional mode for job applications - IMPORTANT
             - Information about myself
+            - Turn Darkmode button into a toggle switch - DONE! <33
             - Make the webpage has a codebase feeling - IN-PROGRESS
             - Animation on codebase WHEN compile & run is clicked
             - Nav bar must be formatted as 'hamburger' button on mobile
             - Fix color combination
             - Add smooth animation        
-            - 
+            
+        -->
+
+        <!-- ADDITIONS (Finished features not on the TODO list.)
+            - Terminal output is hidden 
+            - Greeting function
+            - Fixed nav input text bar
         -->
 
 
         <div id="home" class="min-h-screen flex flex-col items-center justify-center gap-8 bg-red-400 dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
 
-            <h1 id="greeting" class="font-bold text-2xl md:text-2xl absolute top-24 left-4">a</h1>
+            <h1 id="greeting" class="font-bold text-2xl md:text-2xl absolute top-24 left-6">a</h1>
 
             <div id="container-codebase" class="bg-gray-50 dark:bg-gray-600 p-4 rounded-lg w-full max-w-2xl">
                 <h2 class="font-bold text-xl mb-4">Codebase - Java Programming Language</h2>
@@ -63,7 +79,7 @@
             <div id="container-output" class="hidden bg-gray-50 dark:bg-gray-600 p-4 rounded-lg w-full max-w-2xl">
                 <h2 class="font-bold text-xl mb-4">Output</h2>
                 <div id="container-terminal" class="bg-black text-green-500 p-4 rounded-lg font-mono">
-                    <p>Carl Adrian</p>
+                    <p>Carl Adrian T. Carbaquil</p>
                 </div>
             </div>
         </div>

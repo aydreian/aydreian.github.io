@@ -1,23 +1,18 @@
-function toggleDarkMode(button) {
+
+// DarkMode Function
+function toggleDarkMode() {
     document.documentElement.classList.toggle('dark');
-
-    button.textContent = document.documentElement.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
-
-    if(document.documentElement.classList.contains('dark')){
-        localStorage.setItem('theme', 'dark'); 
-    }
-    else{
-        localStorage.setItem('theme', 'light');
-    }
-
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('darkModeToggle').checked = isDark;
 }
 
-if(localStorage.getItem('theme') === 'dark'){
-    document.documentElement.classList.add('dark');
-} else {
-    document.documentElement.classList.remove('dark');
+// Set initial state
+if (document.documentElement.classList.contains('dark')) {
+    document.getElementById('darkModeToggle').checked = true;
 }
 
+
+// Scroll function to section with smooth behavior
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({
          behavior: 'smooth',
@@ -25,11 +20,13 @@ function scrollToSection(id) {
     });
 }
 
+// Terminal hidden function
 function outputTerminal(){
     const output = document.getElementById('container-output');
     output.classList.toggle('hidden');
 }
 
+// Greeting function
 function greeting(){
     const now = new Date();
     const hour = now.getHours();
@@ -50,5 +47,6 @@ function greeting(){
     }
 }
 
+// Call For greeting to display and update
 greeting()
 setInterval(greeting, 1000);
