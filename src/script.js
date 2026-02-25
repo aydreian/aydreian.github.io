@@ -49,5 +49,6 @@ function greeting(){
         document.getElementById('greeting').textContent = 'Good Evening! 🌚';
     }
 }
+
 greeting()
 setInterval(greeting, 1000);
