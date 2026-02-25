@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./output.css" rel="stylesheet">
+        <title>Aydreian</title>
+    </head>
+    
+    <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
+        <nav class = "fixed flex top-0 right-0 w-full bg-gray-600 dark:bg-gray-800 p-4 flex-col md:flex-row gap-4 justify-end z-10 transition-colors duration-500">
+            <h1 class="font-bold text-3xl absolute text-white top-4 left-4">Portfolio</h1>
+            <button onclick="toggleDarkMode(this)" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Dark Mode</button>
+            <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Home</button>
+            <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Us</button>
+            <button onclick="scrollToSection('contact')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Contact</button>
+
+        </nav>
+
+        <div id="home" class="min-h-screen flex flex-col items-center justify-center gap-8 bg-red-400 dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
+
+            <h1 id="greeting" class="font-bold text-2xl md:text-2xl absolute top-24 left-4">a</h1>
+
+            <div id="container-codebase" class="bg-gray-50 dark:bg-gray-600 p-4 rounded-lg w-full max-w-2xl">
+                <h2 class="font-bold text-xl mb-4">Codebase - Java Programming Language</h2>
+                <div id="container-texteditor" class="bg-white dark:bg-gray-700 p-2 rounded-lg font-mono">
+                    <div class="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2 mb-2">
+                        <span class="text-gray-500 select-none w-8 text-right">1</span>
+                        <h1 id="statement1" class="font-normal text-base"></h1>
+                    </div>
+                    <div class="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2 mb-2">
+                        <span class="text-gray-500 select-none w-8 text-right">2</span>
+                        
+                    </div>
+                    <div class="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2 mb-2">
+                        <span class="text-gray-500 select-none w-8 text-right">3</span>
+                        <h1 id="statement2" class="font-normal text-base">String name = "Carl Adrian";</h1>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-gray-500 select-none w-8 text-right">4</span>
+                        <h1 id="statement4" class="font-normal text-base">System.out.println(name);</h1>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-gray-500 select-none w-8 text-right">5</span>
+                        <h1 id="statement5" class="font-normal text-base">  </h1>
+                    </div>                        
+                </div>
+            </div>
+
+            <button onclick="outputTerminal()" class="hover:cursor-pointer bg-green-500 hover:bg-green-300 text-white font-bold py-2 px-4 rounded">Compile & Run</button>
+            
+            <div id="container-output" class="hidden bg-gray-50 dark:bg-gray-600 p-4 rounded-lg w-full max-w-2xl">
+                <h2 class="font-bold text-xl mb-4">Output</h2>
+                <div id="container-terminal" class="bg-black text-green-500 p-4 rounded-lg font-mono">
+                    <p>Carl Adrian</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="about" class="min-h-screen flex flex-col items-center justify-center gap-8">
+            <h2 class="font-bold text-2xl md:text-4xl">About Us</h2>
+            <p class="max-w-xl text-center">EquiEat is dedicated to promoting equitable food distribution and sustainability. Our mission is to ensure that everyone has access to nutritious meals while minimizing food waste.</p>
+        </div>
+
+        <div id="contact" class="min-h-screen flex flex-col items-center justify-center gap-8">
+            <h2 class="font-bold text-2xl md:text-4xl">Contact</h2>
+        </div>
+
+    <script src="script.js" defer></script>
+    </body>
+</html>
