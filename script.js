@@ -50,3 +50,17 @@ function greeting(){
 // Call For greeting to display and update
 greeting()
 setInterval(greeting, 1000);
+
+// Scroll-triggered animation
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+
+

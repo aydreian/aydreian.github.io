@@ -4,15 +4,30 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./output.css" rel="stylesheet">
+        <style>
+            #first-name-gradient {
+                background: linear-gradient(90deg, #ef4444, #ffffff, #1a1a1a, #ef4444);
+                background-size: 300% 100%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradient-shift 4s ease-in-out infinite;
+            }
+            @keyframes gradient-shift {
+                0%   { background-position: 0% 50%; }
+                50%  { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        </style>
         <title>Aydreian</title>
     </head>
     
     <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
         <nav class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-10 transition-colors duration-500">
-            <div class="container mx-auto px-4 py-4 flex justify-between items-center gap-4">
-                <h1 class="text-2xl font-bold">Aydreian</h1>
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center gap-4 animate-slide-up">
+                <h1 class="text-2xl font-bold ">Aydreian</h1>
                 
-                <div class="flex gap-4 items-center">
+                <div class="flex gap-4 items-center ">
                     <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Home</button>
                     <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Us</button>
                     <button onclick="scrollToSection('contact')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Contact</button>
@@ -26,71 +41,46 @@
         </nav>
     
         <!-- TODO:
-            - Add section/webpage for professional mode for job applications - IMPORTANT
+            - Add section/webpage for professional mode for job applications - IMPORTANT - IN Progress
             - Information about myself
             - Turn Darkmode button into a toggle switch - DONE! <33
-            - Make the webpage has a codebase feeling - IN-PROGRESS
-            - Animation on codebase WHEN compile & run is clicked
-            - Nav bar must be formatted as 'hamburger' button on mobile
-            - Fix color combination
-            - Add smooth animation        
+            - Make the webpage has a codebase feeling - Scraped
+            - Add a random live gradient on my name - DONE! <33 <--- new idea
+            - Animation on codebase WHEN compile & run is clicked - Scraped
+            - Nav bar must be formatted as 'hamburger' button on mobile - Needs focus
+            - Fix color combination - Needs focus
+            - Add smooth animation - Partially Done
             
         -->
 
         <!-- ADDITIONS (Finished features not on the TODO list.)
-            - Terminal output is hidden 
+            - Terminal output is hidden - Scraped 
             - Greeting function
             - Fixed nav input text bar
+            - Fixed Greeting function to be aligned with the nav
         -->
 
 
-        <div id="home" class="min-h-screen flex flex-col items-center justify-center gap-8 bg-red-400 dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
+        <div id="home" class="min-h-screen flex flex-col gap-8 bg-red-400 dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
 
-            <h1 id="greeting" class="font-bold text-2xl md:text-2xl absolute top-24 left-6">a</h1>
-
-            <div id="container-codebase" class="bg-gray-50 dark:bg-gray-600 p-4 rounded-lg w-full max-w-2xl">
-                <h2 class="font-bold text-xl mb-4">Codebase - Java Programming Language</h2>
-                <div id="container-texteditor" class="bg-white dark:bg-gray-700 p-2 rounded-lg font-mono">
-                    <div class="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2 mb-2">
-                        <span class="text-gray-500 select-none w-8 text-right">1</span>
-                        <h1 id="statement1" class="font-normal text-base"></h1>
-                    </div>
-                    <div class="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2 mb-2">
-                        <span class="text-gray-500 select-none w-8 text-right">2</span>
-                        
-                    </div>
-                    <div class="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2 mb-2">
-                        <span class="text-gray-500 select-none w-8 text-right">3</span>
-                        <h1 id="statement2" class="font-normal text-base">String name = "Carl Adrian T. Carbaquil";</h1>
-                    </div>
-                    <div class="flex gap-4">
-                        <span class="text-gray-500 select-none w-8 text-right">4</span>
-                        <h1 id="statement4" class="font-normal text-base">System.out.println(name);</h1>
-                    </div>
-                    <div class="flex gap-4">
-                        <span class="text-gray-500 select-none w-8 text-right">5</span>
-                        <h1 id="statement5" class="font-normal text-base">  </h1>
-                    </div>                        
-                </div>
+            <div class="container mx-auto w-full">
+                <h1 id="greeting" class="font-bold text-2xl md:text-2xl animate-slide-up-1">a</h1>
+            </div>
+            <div id="container-intro" class="dark:text-white text-5xl text-center animate-slide-up-2">
+                <div id="Label-Hello" class="font-bold">
+                    <p>Hello! I'm <span id="first-name-gradient">Carl Adrian T. Carbaquil </span></p> 
+                </div>  
             </div>
 
-            <button onclick="outputTerminal()" class="hover:cursor-pointer bg-green-500 hover:bg-green-300 text-white font-bold py-2 px-4 rounded">Compile & Run</button>
-            
-            <div id="container-output" class="hidden bg-gray-50 dark:bg-gray-600 p-4 rounded-lg w-full max-w-2xl">
-                <h2 class="font-bold text-xl mb-4">Output</h2>
-                <div id="container-terminal" class="bg-black text-green-500 p-4 rounded-lg font-mono">
-                    <p>Carl Adrian T. Carbaquil</p>
-                </div>
-            </div>
         </div>
 
         <div id="about" class="min-h-screen flex flex-col items-center justify-center gap-8">
-            <h2 class="font-bold text-2xl md:text-4xl">About Me!</h2>
-            <p class="max-w-xl text-center">Hehehahaha</p>
+            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">About Me!</h2>
+            <p class="max-w-xl text-center scroll-animate">Hehehahaha</p>
         </div>
 
         <div id="contact" class="min-h-screen flex flex-col items-center justify-center gap-8">
-            <h2 class="font-bold text-2xl md:text-4xl">Contact</h2>
+            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">Contact</h2>
         </div>
 
     <footer>
