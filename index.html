@@ -6,17 +6,55 @@
         <link href="./src/output.css" rel="stylesheet">
         <style>
             #first-name-gradient {
-                background: linear-gradient(90deg, #ef4444, #ffffff, #1a1a1a, #ef4444);
-                background-size: 300% 100%;
+                --gradient-angle: 45deg;
+                background: 
+                    linear-gradient(var(--gradient-angle), 
+                        #ff0080, #ff8c00, #40e0d0, #7b68ee, 
+                        #ff1493, #00ff88, #4169e1, #ff0080);
+                background-size: 400% 400%;
                 -webkit-background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
-                animation: gradient-shift 4s ease-in-out infinite;
+                animation: 
+                    gradient-flow 6s ease infinite,
+                    gradient-rotate 8s linear infinite,
+                    shimmer 3s ease-in-out infinite;
+                filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.4))
+                        drop-shadow(0 0 16px rgba(64, 224, 208, 0.3))
+                        drop-shadow(0 0 24px rgba(123, 104, 238, 0.2));
+                position: relative;
             }
-            @keyframes gradient-shift {
+
+            @keyframes gradient-flow {
                 0%   { background-position: 0% 50%; }
-                50%  { background-position: 100% 50%; }
+                25%  { background-position: 100% 25%; }
+                50%  { background-position: 100% 75%; }
+                75%  { background-position: 0% 100%; }
                 100% { background-position: 0% 50%; }
+            }
+
+            @keyframes gradient-rotate {
+                0%   { --gradient-angle: 0deg; }
+                100% { --gradient-angle: 360deg; }
+            }
+
+            @keyframes shimmer {
+                0%, 100% { 
+                    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.5))
+                            drop-shadow(0 0 20px rgba(64, 224, 208, 0.4))
+                            drop-shadow(0 0 30px rgba(123, 104, 238, 0.3));
+                }
+                50% { 
+                    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.6))
+                            drop-shadow(0 0 30px rgba(0, 255, 136, 0.5))
+                            drop-shadow(0 0 45px rgba(65, 105, 225, 0.4));
+                }
+            }
+
+            @property --gradient-angle {
+                syntax: '<angle>';
+                initial-value: 45deg;
+                inherits: false;
             }
         </style>
         <title>Aydreian</title>
