@@ -66,7 +66,7 @@
                 <h1 class="text-2xl font-bold ">Aydreian</h1>
                 
                 <div class="flex gap-4 items-center ">
-                    <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Home</button>
+                    <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Me</button>
                     <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Projects</button>
                     <button onclick="scrollToSection('contact')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Contact</button>
                     
@@ -80,7 +80,7 @@
     
         <!-- TODO:
             - Add section/webpage for professional mode for job applications - IMPORTANT - IN Progress
-            - Information about myself
+            - Information about myself - Partially Done
             - Turn Darkmode button into a toggle switch - DONE! <33
             - Make the webpage has a codebase feeling - Scraped
             - Add a random live gradient on my name - DONE! <33 <--- new idea
@@ -95,10 +95,12 @@
             - Greeting function
             - Fixed nav input text bar
             - Fixed Greeting function to be aligned with the nav
+            - Added a profile picture with a gradient border and animation - DONE! <33
+            
         -->
 
 
-        <div id="home" class="min-h-screen flex flex-col gap-8 bg-red-400 dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
+        <div id="home" class="min-h-screen flex flex-col gap-8 bg-white dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
 
             <div class="container mx-auto w-full">
                 <h1 id="greeting" class="font-bold text-2xl md:text-2xl animate-slide-up-1">a</h1>
@@ -106,30 +108,67 @@
 
 
     <div class="relative w-max self-center mx-auto rounded-full animate-slide-up-3">
-        <div class="absolute inset-0 p-1 bg-gradient-to-r from-white via-green-500 to-orange-400 rounded-full opacity-100 dark:opacity-0 transition-opacity duration-500"></div>
+        <div class="absolute inset-0 p-1 bg-gradient-to-r from-gray-800 via-green-500 to-orange-400 rounded-full opacity-100 dark:opacity-0 transition-opacity duration-500"></div>
         <div class="absolute inset-0 p-1 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full opacity-0 dark:opacity-100 transition-opacity duration-500"></div>
         <div class="relative p-1">
             <img src="./src/picture.jpg" alt="Image" class="w-32 h-32 object-cover rounded-full">
         </div>  
     </div>
 
-            <div id="container-intro" class="dark:text-white text-5xl text-center animate-slide-up-2">
-                <div id="Label-Hello" class="font-bold">
-                    <p>Hello! I'm <span id="first-name-gradient">Carl Adrian T. Carbaquil </span></p> 
+            <div id="container-intro" class="dark:text-white text-center animate-slide-up-2">
+                <div id="Label-Hello" class="font-bold text-5xl md:text-6xl">
+                    <p>Hello! I'm <span id="first-name-gradient">Carl Adrian T. Carbaquil</span></p> 
                 </div>  
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> main
+                <div id="Label-intro" class="font-medium text-lg md:text-xl mt-6 max-w-2xl mx-auto">
+                    <p class="leading-relaxed">
+                        Computer Science Student specializing in 
+                        <span class="text-blue-500 dark:text-blue-400 font-semibold">Digital Forensics</span> 
+                        at National University - Manila
+                    </p>    
+                    <p class="mt-3 text-base md:text-lg text-gray-600 dark:text-gray-400">
+                        Passionate about cybersecurity, ethical hacking, and uncovering digital evidence
+                    </p>
+                </div>
+                
+                <!-- Call-to-action button -->
+                <div class="mt-8 animate-slide-up-3">
+                    <button onclick="scrollToSection('about')" class="group relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <span>View My Work</span>
+                        <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<<<<<<< HEAD
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path> <!-- Arrow down button -->
+                        </svg>
+                    </button>
+                </div>
+>>>>>>> Stashed changes
+=======
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                </div>
+>>>>>>> main
             </div>
 
 
 
         </div>
 
-        <div id="about" class="min-h-screen flex flex-col items-center justify-center gap-8">
-            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">About Me!</h2>
-            <p class="max-w-xl text-center scroll-animate">Hehehahaha</p>
+        <div id="about" class="min-h-screen flex flex-col items-center justify-center gap-8 animate-slide-up-2">
+            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">My Projects!</h2>
+               <div id="project-container" class="flex-col items-center justify-center gap-4 w-94 h-64 p-4 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-lg">
+                    <p class="max-w-xl text-center scroll-animate"></p>   
+                    <p class="max-w-xl text-center scroll-animate">Hehehahaha</p>
+            </div>     
         </div>
 
         <div id="contact" class="min-h-screen flex flex-col items-center justify-center gap-8">
             <h2 class="font-bold text-2xl md:text-4xl scroll-animate">Contact</h2>
+
         </div>
 
     <footer>

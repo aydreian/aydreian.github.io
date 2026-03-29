@@ -6,6 +6,8 @@ function toggleDarkMode() {
     document.getElementById('darkModeToggle').checked = isDark;
 }
 
+console.log("This is so fun to work on haha!")
+
 // Set initial state
 if (document.documentElement.classList.contains('dark')) {
     document.getElementById('darkModeToggle').checked = true;
