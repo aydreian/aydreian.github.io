@@ -6,17 +6,55 @@
         <link href="./src/output.css" rel="stylesheet">
         <style>
             #first-name-gradient {
-                background: linear-gradient(90deg, #ef4444, #ffffff, #1a1a1a, #ef4444);
-                background-size: 300% 100%;
+                --gradient-angle: 45deg;
+                background: 
+                    linear-gradient(var(--gradient-angle), 
+                        #ff0080, #ff8c00, #40e0d0, #7b68ee, 
+                        #ff1493, #00ff88, #4169e1, #ff0080);
+                background-size: 400% 400%;
                 -webkit-background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
-                animation: gradient-shift 4s ease-in-out infinite;
+                animation: 
+                    gradient-flow 6s ease infinite,
+                    gradient-rotate 8s linear infinite,
+                    shimmer 3s ease-in-out infinite;
+                filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.4))
+                        drop-shadow(0 0 16px rgba(64, 224, 208, 0.3))
+                        drop-shadow(0 0 24px rgba(123, 104, 238, 0.2));
+                position: relative;
             }
-            @keyframes gradient-shift {
+
+            @keyframes gradient-flow {
                 0%   { background-position: 0% 50%; }
-                50%  { background-position: 100% 50%; }
+                25%  { background-position: 100% 25%; }
+                50%  { background-position: 100% 75%; }
+                75%  { background-position: 0% 100%; }
                 100% { background-position: 0% 50%; }
+            }
+
+            @keyframes gradient-rotate {
+                0%   { --gradient-angle: 0deg; }
+                100% { --gradient-angle: 360deg; }
+            }
+
+            @keyframes shimmer {
+                0%, 100% { 
+                    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.5))
+                            drop-shadow(0 0 20px rgba(64, 224, 208, 0.4))
+                            drop-shadow(0 0 30px rgba(123, 104, 238, 0.3));
+                }
+                50% { 
+                    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.6))
+                            drop-shadow(0 0 30px rgba(0, 255, 136, 0.5))
+                            drop-shadow(0 0 45px rgba(65, 105, 225, 0.4));
+                }
+            }
+
+            @property --gradient-angle {
+                syntax: '<angle>';
+                initial-value: 45deg;
+                inherits: false;
             }
         </style>
         <title>Aydreian</title>
@@ -28,8 +66,8 @@
                 <h1 class="text-2xl font-bold ">Aydreian</h1>
                 
                 <div class="flex gap-4 items-center ">
-                    <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Home</button>
-                    <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Us</button>
+                    <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Me</button>
+                    <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Projects</button>
                     <button onclick="scrollToSection('contact')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Contact</button>
                     
                     <label class="toggle-switch">
@@ -62,7 +100,7 @@
         -->
 
 
-        <div id="home" class="min-h-screen flex flex-col gap-8 bg-red-400 dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
+        <div id="home" class="min-h-screen flex flex-col gap-8 bg-white dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
 
             <div class="container mx-auto w-full">
                 <h1 id="greeting" class="font-bold text-2xl md:text-2xl animate-slide-up-1">a</h1>
@@ -77,12 +115,15 @@
         </div>  
     </div>
 
-            <div id="container-intro" class="dark:text-white text-5xl text-center animate-slide-up-2">
-                <div id="Label-Hello" class="font-bold">
-                    <p>Hello! I'm <span id="first-name-gradient">Carl Adrian T. Carbaquil </span></p> 
+            <div id="container-intro" class="dark:text-white text-center animate-slide-up-2">
+                <div id="Label-Hello" class="font-bold text-5xl md:text-6xl">
+                    <p>Hello! I'm <span id="first-name-gradient">Carl Adrian T. Carbaquil</span></p> 
                 </div>  
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> main
                 <div id="Label-intro" class="font-medium text-lg md:text-xl mt-6 max-w-2xl mx-auto">
                     <p class="leading-relaxed">
                         Computer Science Student specializing in 
@@ -99,24 +140,35 @@
                     <button onclick="scrollToSection('about')" class="group relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                         <span>View My Work</span>
                         <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<<<<<<< HEAD
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path> <!-- Arrow down button -->
                         </svg>
                     </button>
                 </div>
 >>>>>>> Stashed changes
+=======
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                </div>
+>>>>>>> main
             </div>
 
 
 
         </div>
 
-        <div id="about" class="min-h-screen flex flex-col items-center justify-center gap-8">
-            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">About Me!</h2>
-            <p class="max-w-xl text-center scroll-animate">Hehehahaha</p>
+        <div id="about" class="min-h-screen flex flex-col items-center justify-center gap-8 animate-slide-up-2">
+            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">My Projects!</h2>
+               <div id="project-container" class="flex-col items-center justify-center gap-4 w-94 h-64 p-4 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-lg">
+                    <p class="max-w-xl text-center scroll-animate"></p>   
+                    <p class="max-w-xl text-center scroll-animate">Hehehahaha</p>
+            </div>     
         </div>
 
         <div id="contact" class="min-h-screen flex flex-col items-center justify-center gap-8">
             <h2 class="font-bold text-2xl md:text-4xl scroll-animate">Contact</h2>
+
         </div>
 
     <footer>
