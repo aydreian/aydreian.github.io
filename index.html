@@ -48,7 +48,8 @@
                     style="background-color: var(--color-accent)"></span>
             </h1>
 
-            <div class="flex gap-2 items-center">
+            <!-- Desktop nav links + theme picker -->
+            <div class="desktop-nav flex gap-2 items-center">
                 <button onclick="scrollToSection('home')" class="nav-btn">About Me</button>
                 <button onclick="scrollToSection('skills')" class="nav-btn">Skills</button>
                 <button onclick="scrollToSection('about')" class="nav-btn">Projects</button>
@@ -63,6 +64,13 @@
                         title="Warm"></button>
                 </div>
             </div>
+
+            <!-- Hamburger button (mobile only) -->
+            <button class="hamburger-btn" id="hamburger-btn" onclick="toggleDrawer()" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -89,10 +97,11 @@
         <div
             class="max-w-6xl w-full mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-between h-full flex-grow pt-0 pb-8">
 
-            <div class="animate-slide-up-1">
+            <!-- Greeting tag: hidden on mobile -->
+            <div class="greeting-tag-wrapper animate-slide-up-1">
                 <span class="greeting-tag">
                     <span>👋</span>
-                    <span id="greeting">Good Afternoon!</span>
+                    <span id="greeting">Good Morning!</span>
                 </span>
             </div>
 
@@ -101,8 +110,22 @@
 
                 <!-- Left: Text -->
                 <div class="flex flex-col justify-center gap-6 flex-1 animate-slide-up-2">
-                    <!-- Name -->
-                    <div>
+
+                    <!-- MOBILE ONLY: photo + name side-by-side -->
+                    <div class="hero-mobile-top">
+                        <div class="photo-frame flex-shrink-0">
+                            <img src="./src/picture.jpeg" alt="Carl Adrian T. Carbaquil"
+                                style="width:80px;height:80px;object-fit:cover;object-position:top;">
+                        </div>
+                        <h2 class="hero-name font-bold" style="color: var(--color-text); line-height: 1.15;">
+                            Hello, I'm<br>
+                            <span class="text-accent">Carl Adrian</span><br>
+                            <span style="color: var(--color-text)">Carbaquil.</span>
+                        </h2>
+                    </div>
+
+                    <!-- DESKTOP ONLY: name block -->
+                    <div class="hidden md:block">
                         <p class="text-sm font-semibold tracking-widest uppercase mb-2"
                             style="color: var(--color-text-muted)">CS Student · Digital Forensics · TESDA CSS NCII
                             Certification Holder</p>
@@ -113,6 +136,11 @@
                             <span style="color: var(--color-text)">Carbaquil.</span>
                         </h2>
                     </div>
+
+                    <!-- Mobile subtitle (below the photo+name row) -->
+                    <p class="text-sm font-semibold tracking-widest uppercase md:hidden"
+                        style="color: var(--color-text-muted)">CS Student · Digital Forensics · TESDA CSS NCII
+                        Certification Holder</p>
 
                     <!-- Description -->
                     <div style="color: var(--color-text-muted);" class="max-w-lg">
@@ -134,8 +162,8 @@
                         <span class="greeting-tag text-xs">💻 Ethical Hacking</span>
                     </div>
 
-                    <!-- CTA -->
-                    <div class="animate-slide-up-4">
+                    <!-- CTA: side-by-side buttons -->
+                    <div class="cta-row flex gap-3 animate-slide-up-4">
                         <a href="https://github.com/aydreian" target="_blank" class="btn-cta">
                             <span>View My GitHub</span>
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -154,8 +182,8 @@
                     </div>
                 </div>
 
-                <!-- Right: Profile Photo -->
-                <div class="flex items-center justify-center flex-shrink-0 animate-slide-up-3">
+                <!-- Right: Profile Photo (DESKTOP ONLY) -->
+                <div class="photo-desktop flex items-center justify-center flex-shrink-0 animate-slide-up-3">
                     <div class="photo-frame">
                         <img src="./src/picture.jpeg" alt="Carl Adrian T. Carbaquil"
                             class="w-56 h-56 md:w-72 md:h-72 object-cover object-top">
