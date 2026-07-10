@@ -11,24 +11,49 @@
 </head>
 
 <body>
+    <div id="greeting-splash" aria-hidden="true">
+        <div class="splash-bg"></div>
+        <div class="splash-blur-circle"></div>
+        <div class="splash-blur-circle"></div>
+        <div class="splash-content">
+            <div class="splash-emoji" id="splash-emoji">👋</div>
+            <div class="splash-text" id="splash-text">Good Morning!</div>
+            <div class="splash-sub">Welcome, User!</div>
+        </div>
+    </div>
+
+    <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <button onclick="scrollToSection('home'); closeDrawer()" class="nav-btn">About Me</button>
+        <button onclick="scrollToSection('skills'); closeDrawer()" class="nav-btn">Skills</button>
+        <button onclick="scrollToSection('about'); closeDrawer()" class="nav-btn">Projects</button>
+        <button onclick="scrollToSection('contact'); closeDrawer()" class="nav-btn">Contact</button>
+        <div class="theme-picker" title="Choose a theme" style="margin-top: 12px;">
+            <button class="theme-swatch swatch-light" id="swatch-light-m" onclick="setTheme('light')"
+                title="Light"></button>
+            <button class="theme-swatch swatch-dark" id="swatch-dark-m" onclick="setTheme('dark')"
+                title="Dark"></button>
+            <button class="theme-swatch swatch-warm" id="swatch-warm-m" onclick="setTheme('warm')"
+                title="Warm"></button>
+        </div>
+    </div>
+
     <!-- ─── Navigation ─── -->
     <nav class="fixed top-0 left-0 right-0 z-50 animate-slide-up">
         <div class="max-w-6xl w-full mx-auto px-6 md:px-12 lg:px-16 py-4 flex justify-between items-center gap-4">
-            <!-- Logo -->
             <h1 class="text-xl font-bold tracking-tight" style="color: var(--color-text)">
                 Aydreian
                 <span class="inline-block w-1.5 h-1.5 rounded-full mb-1 ml-0.5"
                     style="background-color: var(--color-accent)"></span>
             </h1>
 
-            <!-- Nav Links + Theme Picker -->
             <div class="flex gap-2 items-center">
                 <button onclick="scrollToSection('home')" class="nav-btn">About Me</button>
                 <button onclick="scrollToSection('skills')" class="nav-btn">Skills</button>
                 <button onclick="scrollToSection('about')" class="nav-btn">Projects</button>
                 <button onclick="scrollToSection('contact')" class="nav-btn">Contact</button>
 
-                <!-- Theme Picker (replaces dark mode toggle) -->
                 <div class="theme-picker" title="Choose a theme">
                     <button class="theme-swatch swatch-light active" id="swatch-light" onclick="setTheme('light')"
                         title="Light"></button>
@@ -43,7 +68,6 @@
 
     <!-- ─── TODO / ADDITIONS ──────────────────────────────────────────────
             TODO:
-            - Add section/webpage for professional mode for job applications - IMPORTANT - IN Progress
             - Information about myself - Partially Done
             - Turn Darkmode button into a toggle switch - DONE! <33
             - Theme picker replacing toggle - DONE! <33
@@ -65,7 +89,6 @@
         <div
             class="max-w-6xl w-full mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-between h-full flex-grow pt-0 pb-8">
 
-            <!-- Greeting Tag (top, aligned with nav) -->
             <div class="animate-slide-up-1">
                 <span class="greeting-tag">
                     <span>👋</span>
