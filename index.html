@@ -1,172 +1,232 @@
 <!DOCTYPE html>
-<html class="dark scroll-smooth">
+<html class="scroll-smooth" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Aydreian — Carl Adrian T. Carbaquil, Computer Science student specializing in Digital Forensics at National University - Manila.">
         <link href="./src/output.css" rel="stylesheet">
-        <style>
-            #first-name-gradient {
-                --gradient-angle: 45deg;
-                background: 
-                    linear-gradient(var(--gradient-angle), 
-                        #ff0080, #ff8c00, #40e0d0, #7b68ee, 
-                        #ff1493, #00ff88, #4169e1, #ff0080);
-                background-size: 400% 400%;
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: 
-                    gradient-flow 6s ease infinite,
-                    gradient-rotate 8s linear infinite,
-                    shimmer 3s ease-in-out infinite;
-                filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.4))
-                        drop-shadow(0 0 16px rgba(64, 224, 208, 0.3))
-                        drop-shadow(0 0 24px rgba(123, 104, 238, 0.2));
-                position: relative;
-            }
-
-            @keyframes gradient-flow {
-                0%   { background-position: 0% 50%; }
-                25%  { background-position: 100% 25%; }
-                50%  { background-position: 100% 75%; }
-                75%  { background-position: 0% 100%; }
-                100% { background-position: 0% 50%; }
-            }
-
-            @keyframes gradient-rotate {
-                0%   { --gradient-angle: 0deg; }
-                100% { --gradient-angle: 360deg; }
-            }
-
-            @keyframes shimmer {
-                0%, 100% { 
-                    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.5))
-                            drop-shadow(0 0 20px rgba(64, 224, 208, 0.4))
-                            drop-shadow(0 0 30px rgba(123, 104, 238, 0.3));
-                }
-                50% { 
-                    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.6))
-                            drop-shadow(0 0 30px rgba(0, 255, 136, 0.5))
-                            drop-shadow(0 0 45px rgba(65, 105, 225, 0.4));
-                }
-            }
-
-            @property --gradient-angle {
-                syntax: '<angle>';
-                initial-value: 45deg;
-                inherits: false;
-            }
-        </style>
-        <title>Aydreian</title>
+        <title>Aydreian · Carl Adrian Carbaquil</title>
     </head>
-    
-    <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
-        <nav class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-10 transition-colors duration-500">
-            <div class="container mx-auto px-4 py-4 flex justify-between items-center gap-4 animate-slide-up">
-                <h1 class="text-2xl font-bold ">Aydreian</h1>
-                
-                <div class="flex gap-4 items-center ">
-                    <button onclick="scrollToSection('home')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">About Me</button>
-                    <button onclick="scrollToSection('about')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Projects</button>
-                    <button onclick="scrollToSection('contact')" class="hover:cursor-pointer bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Contact</button>
-                    
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
-                        <span class="slider"></span>
-                    </label>
+
+    <body>
+        <!-- ─── Navigation ─── -->
+        <nav class="fixed top-0 left-0 right-0 z-50">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center gap-4">
+                <!-- Logo -->
+                <h1 class="text-xl font-bold tracking-tight" style="color: var(--color-text)">
+                    Aydreian
+                    <span class="inline-block w-1.5 h-1.5 rounded-full mb-1 ml-0.5" style="background-color: var(--color-accent)"></span>
+                </h1>
+
+                <!-- Nav Links + Theme Picker -->
+                <div class="flex gap-2 items-center">
+                    <button onclick="scrollToSection('home')"    class="nav-btn">About Me</button>
+                    <button onclick="scrollToSection('about')"   class="nav-btn">Projects</button>
+                    <button onclick="scrollToSection('contact')" class="nav-btn">Contact</button>
+
+                    <!-- Theme Picker (replaces dark mode toggle) -->
+                    <div class="theme-picker" title="Choose a theme">
+                        <button class="theme-swatch swatch-light active" id="swatch-light" onclick="setTheme('light')" title="Light"></button>
+                        <button class="theme-swatch swatch-dark"         id="swatch-dark"  onclick="setTheme('dark')"  title="Dark"></button>
+                        <button class="theme-swatch swatch-warm"         id="swatch-warm"  onclick="setTheme('warm')"  title="Warm"></button>
+                    </div>
                 </div>
             </div>
         </nav>
-    
-        <!-- TODO:
+
+        <!-- ─── TODO / ADDITIONS ──────────────────────────────────────────────
+            TODO:
             - Add section/webpage for professional mode for job applications - IMPORTANT - IN Progress
             - Information about myself - Partially Done
             - Turn Darkmode button into a toggle switch - DONE! <33
-            - Make the webpage has a codebase feeling - Scraped
-            - Add a random live gradient on my name - DONE! <33 <--- new idea
-            - Animation on codebase WHEN compile & run is clicked - Scraped
+            - Theme picker replacing toggle - DONE! <33
+            - Make the webpage has a codebase feeling - removed
+            - Add a random live gradient on my name - removed
             - Nav bar must be formatted as 'hamburger' button on mobile - Needs focus
-            - Fix color combination - Needs focus
-            - Add smooth animation - Partially Done    
-        -->
+            - Fix color combination - DONE! <33
+            - Add smooth animation - Partially Done
 
-        <!-- ADDITIONS (Finished features not on the TODO list.)
-            - Terminal output is hidden - Scraped 
-            - Greeting function
-            - Fixed nav input text bar
-            - Fixed Greeting function to be aligned with the nav
-            - Added a profile picture with a gradient border and animation - DONE! <33
-            
-        -->
+            ADDITIONS:
+            - Greeting function - DONE
+            - Fixed Greeting function to be aligned with the nav - DONE
+            - Added a profile picture with animated gradient border - DONE! <33
+            - 3-Theme picker (Light / Dark / Warm) - DONE! <33
+        ─────────────────────────────────────────────────────────────────── -->
 
+        <!-- ─── HomePage ─── -->
+        <section id="home" class="min-h-screen flex flex-col pt-20">
+            <div class="container mx-auto px-6 flex flex-col justify-between h-full flex-grow py-8">
 
-        <div id="home" class="min-h-screen flex flex-col gap-8 bg-white dark:bg-gray-900 transition-colors duration-500 pt-24 px-4">
+                <!-- Greeting Tag (top, aligned with nav) -->
+                <div class="animate-slide-up-1">
+                    <span class="greeting-tag">
+                        <span class="ui-icon icon-hand" aria-hidden="true"></span>
+                        <span id="greeting">Good Afternoon!</span>
+                    </span>
+                </div>
 
-            <div class="container mx-auto w-full">
-                <h1 id="greeting" class="font-bold text-2xl md:text-2xl animate-slide-up-1">a</h1>
+                <!-- Main Hero Content -->
+                <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-12 flex-grow py-12">
+
+                    <!-- Left: Text -->
+                    <div class="flex flex-col justify-center gap-6 flex-1">
+                        <!-- Name -->
+                        <div class="animate-slide-up-2">
+                            <p class="text-sm font-semibold tracking-widest uppercase mb-2" style="color: var(--color-text-muted)">CS Student · Digital Forensics · TESDA CSS NCII Certification Holder</p>
+                            <h2 class="font-bold leading-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--color-text); line-height: 1.1;">
+                                Hello, I'm<br>
+                                <span class="text-accent">Carl Adrian</span><br>
+                                <span style="color: var(--color-text)">Carbaquil.</span>
+                            </h2>
+                        </div>
+
+                        <!-- Description -->
+                        <div style="color: var(--color-text-muted);" class="max-w-lg animate-slide-up-3">
+                            <p class="leading-relaxed text-base md:text-lg">
+                                Computer Science Student specializing in
+                                <span class="text-accent font-semibold">Digital Forensics</span>
+                                at <span style="color: var(--color-NU-text); font-weight: 500;">National University – Manila.</span>
+                            </p>
+                            <p class="mt-3 text-sm md:text-base leading-relaxed">
+                                Passionate about cybersecurity, ethical hacking, and uncovering digital evidence.
+                            </p>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 animate-slide-up-4">
+                            <span class="greeting-tag text-xs"><span class="ui-icon icon-shield" aria-hidden="true"></span>Cybersecurity</span>
+                            <span class="greeting-tag text-xs"><span class="ui-icon icon-fingerprint" aria-hidden="true"></span>Digital Forensics</span>
+                            <span class="greeting-tag text-xs"><span class="ui-icon icon-terminal" aria-hidden="true"></span>Ethical Hacking</span>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="animate-slide-up-5">
+                            <button onclick="scrollToSection('about')" class="btn-cta">
+                                <span>View My Work</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Profile Photo -->
+                    <div class="flex items-center justify-center flex-shrink-0 animate-photo-in">
+                        <div class="photo-frame">
+                            <img src="./src/picture.jpeg"
+                                 alt="Carl Adrian T. Carbaquil"
+                                 class="w-56 h-56 md:w-72 md:h-72 object-cover object-top">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom divider -->
+                <div class="section-divider animate-slide-up-4"></div>
+            </div>
+        </section>
+
+        <!-- ─── Skills ─── -->
+
+        <section id="skills" class="content-section skills-section" aria-labelledby="skills-heading">
+            <div class="skills-heading">
+                <div>
+                    <p class="section-eyebrow">My skills · Always a work in progress</p>
+                    <h2 id="skills-heading">A curious mind.<br><span>A practical toolkit.</span></h2>
+                </div>
+                <p>I like figuring out how things work, asking what could go wrong, and building something useful with what I learn.</p>
             </div>
 
-
-    <div class="relative w-max self-center mx-auto rounded-full animate-slide-up-3">
-        <div class="absolute inset-0 p-1 bg-gradient-to-r from-gray-800 via-green-500 to-orange-400 rounded-full opacity-100 dark:opacity-0 transition-opacity duration-500"></div>
-        <div class="absolute inset-0 p-1 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full opacity-0 dark:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative p-1">
-            <img src="./src/picture.jpg" alt="Image" class="w-32 h-32 object-cover rounded-full">
-        </div>  
-    </div>
-
-            <div id="container-intro" class="dark:text-white text-center animate-slide-up-2">
-                <div id="Label-Hello" class="font-bold text-5xl md:text-6xl">
-                    <p>Hello! I'm <span id="first-name-gradient">Carl Adrian T. Carbaquil</span></p> 
-                </div>  
-                <div id="Label-intro" class="font-medium text-lg md:text-xl mt-6 max-w-2xl mx-auto">
-                    <p class="leading-relaxed">
-                        Computer Science Student specializing in 
-                        <span class="text-blue-500 dark:text-blue-400 font-semibold">Digital Forensics</span> 
-                        at National University - Manila
-                    </p>    
-                    <p class="mt-3 text-base md:text-lg text-gray-600 dark:text-gray-400">
-                        Passionate about cybersecurity, ethical hacking, and uncovering digital evidence
-                    </p>
+            <div class="skills-workbench">
+                <div class="skills-explorer">
+                    <div class="explorer-heading"><span class="section-eyebrow">Three sides of my toolkit</span><span class="explorer-hint" hidden>Pick a perspective <span aria-hidden="true">↙</span></span></div>
+                    <div class="skills-tabs" role="tablist" aria-label="Explore my skills" hidden>
+                        <button type="button" id="tab-investigate" role="tab" aria-selected="true" aria-controls="skill-investigate" tabindex="0"><span>01</span> Investigate</button>
+                        <button type="button" id="tab-protect" role="tab" aria-selected="false" aria-controls="skill-protect" tabindex="-1"><span>02</span> Protect</button>
+                        <button type="button" id="tab-build" role="tab" aria-selected="false" aria-controls="skill-build" tabindex="-1"><span>03</span> Build</button>
+                    </div>
+                    <div class="skill-panel" id="skill-investigate" aria-labelledby="title-investigate">
+                        <svg class="skill-illustration" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="15" y="10" width="38" height="52" rx="5"/><path d="M24 23h20M24 32h12M24 41h9"/><circle cx="51" cy="48" r="15"/><path d="m62 59 10 10"/></svg>
+                        <p class="skill-kicker">Look closer. Connect the dots.</p>
+                        <h3 id="title-investigate">Every detail has a story.</h3>
+                        <p class="skill-description">Digital Forensics is my specialization at NU Manila. I’m interested in how digital evidence helps explain what happened, and the careful thinking it takes to make sense of it.</p>
+                        <ul class="skill-topics" aria-label="Investigation interests"><li>Digital forensics</li><li>Digital evidence</li><li>Investigation</li></ul>
+                        <div class="skill-context"><span class="context-mark" aria-hidden="true">↳</span><div><span>Where I’m learning</span><p>BS Computer Science · National University – Manila</p></div></div>
+                    </div>
+                    <div class="skill-panel" id="skill-protect" aria-labelledby="title-protect">
+                        <svg class="skill-illustration" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M40 8 65 18v21c0 15-11 26-25 33C26 65 15 54 15 39V18L40 8Z"/><rect x="29" y="33" width="22" height="19" rx="4"/><path d="M33 33v-6a7 7 0 0 1 14 0v6M40 40v5"/></svg>
+                        <p class="skill-kicker">Understand the system. Question the gaps.</p>
+                        <h3 id="title-protect">Curiosity with responsibility.</h3>
+                        <p class="skill-description">Cybersecurity and ethical hacking keep me curious about how systems can fail, and how understanding those weaknesses can help make them safer.</p>
+                        <ul class="skill-topics" aria-label="Security interests"><li>Cybersecurity</li><li>Ethical hacking</li><li>Responsible exploration</li></ul>
+                        <div class="skill-context"><span class="context-mark" aria-hidden="true">↳</span><div><span>What draws me in</span><p>The connection between understanding a system and protecting it.</p></div></div>
+                    </div>
+                    <div class="skill-panel" id="skill-build" aria-labelledby="title-build">
+                        <svg class="skill-illustration" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="13" width="64" height="52" rx="6"/><path d="M8 26h64M17 20h1m6 0h1m6 0h1M30 37l-9 8 9 8m20-16 9 8-9 8M44 35l-8 21"/></svg>
+                        <p class="skill-kicker">Turn an idea into something real.</p>
+                        <h3 id="title-build">Learn it. Build it. Improve it.</h3>
+                        <p class="skill-description">My projects are where the learning gets hands-on: Java with EquiEat, interface work with ConsisFit, C# with Payroll System, and HTML, CSS, and JavaScript here on my portfolio.</p>
+                        <ul class="skill-topics" aria-label="Languages used in my projects"><li>Java</li><li>C#</li><li>HTML &amp; CSS</li><li>JavaScript</li></ul>
+                        <div class="skill-context"><span class="context-mark" aria-hidden="true">↳</span><div><span>From the toolkit to the real thing</span><a href="#about">Explore the projects <span aria-hidden="true">↗</span></a></div></div>
+                    </div>
                 </div>
-                
-                <!-- Call-to-action button -->
-                <div class="mt-8 animate-slide-up-3">
-                    <button onclick="scrollToSection('about')" class="group relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-                        <span>View My Work</span>
-                        <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path> <!-- Arrow down button -->
-                        </svg>
-                    </button>
-                </div>
-
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                        </svg>
-                    </button>
-                </div>
+                <aside class="skills-sidebar" aria-label="My foundation and current focus">
+                    <div class="certification-card">
+                        <div class="certification-top"><span class="section-eyebrow">Hands-on foundation</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 2 3 2 3.5.5.5 3.5 2 3-2 3-.5 3.5-3.5.5-3 2-3-2-3.5-.5L5 14l-2-3 2-3 .5-3.5L9 4l3-2Z"/><path d="m8 11 2.5 2.5L16 8"/></svg></div>
+                        <span class="certification-level">NC II<span>TESDA certified</span></span>
+                        <h3>Computer Systems<br>Servicing</h3>
+                        <p>A practical foundation alongside my Computer Science studies.</p>
+                        <div class="certification-footer"><span aria-hidden="true">✓</span> CSS NC II Certification Holder</div>
+                    </div>
+                    <div class="learning-note"><span class="learning-dot" aria-hidden="true"></span><div><span class="section-eyebrow">On my workbench</span><p>Project Iskater</p><span>Turning family scenarios into a game simulation.</span></div></div>
+                </aside>
             </div>
+            <div class="skills-footnote"><span>A little more curious every day.</span><span>Ask. Explore. Build. Repeat. <span aria-hidden="true">↻</span></span></div>
+        </section>
 
 
+        <!-- ─── Projects ─── -->
+        <section id="about" class="content-section">
+            <h2 class="font-bold text-2xl md:text-4xl" style="color: var(--color-text)">My Projects</h2>
+            <p class="section-intro">Learning by building. A selection of public work, university collaborations, and what I’m working on now.</p>
+            <div id="project-container" class="project-grid">
+                <article class="project-card current-project">
+                    <div><span class="project-label">● Currently building</span><h3>Project Iskater</h3><p>A game simulator that explores real-world gambling through a realistic family scenario, connecting game decisions with everyday family life.</p><div class="project-tags"><span>Game simulation</span><span>Family scenarios</span><span>In development</span></div></div>
+                    <span class="nu-badge iskater-badge"><img src="src/iskater-icon.png" alt="Project Iskater cat logo" width="64" height="64" loading="lazy"></span>
+                </article>
+                <article class="project-card university-project gold-project">
+                    <span class="nu-badge"><img src="src/nu-logo.svg" alt="National University" width="54" height="64" loading="lazy"></span>
+                    <span class="project-label">NU Manila · Final project</span><h3>EquiEat</h3><p>A smart ration system designed to distribute relief goods equitably. A team final project at National University that I contributed to.</p><div class="project-tags"><span>Java</span><span>Team contribution</span></div><a href="https://github.com/aydreian/EquiEat---Smart-Ration-System" target="_blank" rel="noopener noreferrer">View public repository <span aria-hidden="true">↗</span></a>
+                </article>
+                <article class="project-card university-project blue-project">
+                    <span class="nu-badge"><img src="src/nu-logo.svg" alt="National University" width="54" height="64" loading="lazy"></span>
+                    <span class="project-label">NU Manila · Final project</span><h3>ConsisFit</h3><p>A collaborative final project at National University. My public repository documents work on improving its user interface.</p><div class="project-tags"><span>HTML</span><span>Team contribution</span></div><a href="https://github.com/aydreian/ConsisFit" target="_blank" rel="noopener noreferrer">View public repository <span aria-hidden="true">↗</span></a>
+                </article>
+                <article class="project-card"><span class="project-label">Public project</span><h3>Payroll System</h3><p>A C# payroll system project. Explore the implementation and source code on GitHub.</p><div class="project-tags"><span>C#</span></div><a href="https://github.com/aydreian/Payroll-System" target="_blank" rel="noopener noreferrer">View public repository ↗</a></article>
+                <article class="project-card"><span class="project-label">The site you’re on</span><h3>Personal Portfolio</h3><p>My corner of the web: a responsive portfolio with three themes, public projects, and a way to get in touch.</p><div class="project-tags"><span>HTML</span><span>Tailwind CSS</span><span>JavaScript</span></div><a href="https://github.com/aydreian/aydreian.github.io" target="_blank" rel="noopener noreferrer">View public repository ↗</a></article>
+            </div>
+            <a class="text-link" href="https://github.com/aydreian?tab=repositories&amp;type=public" target="_blank" rel="noopener noreferrer">Explore my public repositories ↗</a>
+        </section>
 
-        </div>
+        <!-- ─── Contact ─── -->
+        <section id="contact" class="content-section">
+            <h2 class="font-bold text-2xl md:text-4xl" style="color: var(--color-text)">Contact</h2>
+            <p class="section-intro">Have a question or an idea to share? Let’s start a conversation.</p>
+            <div class="contact-panel">
+                <div><span class="project-label">Say hello</span><h3>Let’s connect.</h3><p>Reach me directly at</p><a class="email-link" href="mailto:carladriantcarbaquil@gmail.com">carladriantcarbaquil@gmail.com</a><p class="contact-note">The form opens a prefilled Gmail draft. Review your message and press Send in Gmail, or use the email link to open your preferred email app.</p></div>
+                <form id="contact-form" action="https://mail.google.com/mail/" method="get" target="_blank" rel="noopener noreferrer">
+                    <input type="hidden" name="view" value="cm"><input type="hidden" name="fs" value="1"><input type="hidden" name="to" value="carladriantcarbaquil@gmail.com">
+                    <label for="contact-subject">Subject</label><input id="contact-subject" name="su" placeholder="What would you like to talk about?" required maxlength="160">
+                    <label for="contact-message">Message</label><textarea id="contact-message" name="body" rows="5" placeholder="Hi Carl, …" required maxlength="5000"></textarea>
+                    <button class="btn-cta" type="submit">Compose in Gmail <span aria-hidden="true">↗</span></button><p id="contact-status" role="status"></p>
+                </form>
+            </div>
+        </section>
 
-        <div id="about" class="min-h-screen flex flex-col items-center justify-center gap-8 animate-slide-up-2">
-            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">My Projects!</h2>
-               <div id="project-container" class="flex-col items-center justify-center gap-4 w-94 h-64 p-4 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-lg">
-                    <p class="max-w-xl text-center scroll-animate"></p>   
-                    <p class="max-w-xl text-center scroll-animate">Hehehahaha</p>
-            </div>     
-        </div>
+        <footer style="border-top: 1px solid var(--color-border); color: var(--color-text-muted);" class="text-center py-6 text-sm">
+            © <span id="year">2026</span> Aydreian · Carl Adrian T. Carbaquil
+        </footer>
 
-        <div id="contact" class="min-h-screen flex flex-col items-center justify-center gap-8">
-            <h2 class="font-bold text-2xl md:text-4xl scroll-animate">Contact</h2>
-
-        </div>
-
-    <footer>
-
-    </footer>
-    <script src="script.js" defer></script>
+        <script src="script.js" defer></script>
     </body>
 </html>
